@@ -8,6 +8,11 @@ use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
+
+//    public function __construct(){
+//        $this->middleware('auth');
+//    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::latest()->paginate(12);
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -25,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -36,7 +42,7 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $product = new Product($request->validated());
     }
 
     /**

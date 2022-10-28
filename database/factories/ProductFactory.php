@@ -17,7 +17,12 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'image' => 'https://picsum.photos/seed/'.fake()->uuid.'/300/200',
+            'name' => fake()->words(3,true),
+            'description' => fake()->paragraph,
+            'status' => fake()->randomElement(['available', 'not available']),
+            'brand' => fake()->word,
+            'production_date' => fake()->dateTime
         ];
     }
 }
