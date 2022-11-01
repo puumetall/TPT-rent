@@ -26,8 +26,12 @@
                         <div class="btn-group">
                             <a href="{{route('products.show', ['product' => $product->id])}}" class="btn btn-primary">View</a>
                             <a href="{{route('products.edit', ['product' => $product->id])}}" class="btn btn-warning">Edit</a>
-                            <a href="{{route('products.destroy', ['product' => $product->id])}}" class="btn btn-danger">Delete</a>
+                            <button class="btn btn-danger" form="delete-form-{{$product->id}}">Delete</button>
                         </div>
+                        <form id="delete-form-{{$product->id}}" action="{{route('products.destroy', ['product' => $product->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                        </form>
                     </td>
                 </tr>
             @endforeach

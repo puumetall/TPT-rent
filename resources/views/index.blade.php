@@ -17,9 +17,9 @@
                         </ul>
                         <div class="card-body">
                             @if($product->status == 'not available')
-                                <a href="#" class="btn btn-primary disabled">Go somewhere</a>
+                                <a href="#" class="btn btn-primary disabled">Read more</a>
                             @else
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="{{route('public.show', ['product'=> $product->id])}}" class="btn btn-primary">Read more</a>
                             @endif
                         </div>
                     </div>
