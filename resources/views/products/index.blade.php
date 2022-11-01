@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <a href="/products/create" class="btn btn-primary">New Product</a>
+        <a href="{{route('products.create')}}" class="btn btn-primary">New Product</a>
         {{$products->links()}}
         <table class="table table-striped table-hover">
             <thead>
@@ -24,9 +24,9 @@
                     <td>{{$product->updated_at}}</td>
                     <td>
                         <div class="btn-group">
-                            <a href="#" class="btn btn-primary">View</a>
-                            <a href="#" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <a href="{{route('products.show', ['product' => $product->id])}}" class="btn btn-primary">View</a>
+                            <a href="{{route('products.edit', ['product' => $product->id])}}" class="btn btn-warning">Edit</a>
+                            <a href="{{route('products.destroy', ['product' => $product->id])}}" class="btn btn-danger">Delete</a>
                         </div>
                     </td>
                 </tr>

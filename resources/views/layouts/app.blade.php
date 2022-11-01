@@ -32,7 +32,7 @@
                     <ul class="navbar-nav me-auto">
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="/products">Admin</a>
+                                <a class="nav-link" href="{{route('products.index')}}">Admin</a>
                             </li>
                         @endauth
                     </ul>
