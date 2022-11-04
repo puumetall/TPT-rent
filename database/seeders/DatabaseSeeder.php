@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
          \App\Models\User::factory()->create([
-             'name' => 'Kaspar Suursalu',
-             'email' => 'kaspar@mail.com'
+             'name' => 'Suur Kaka',
+             'email' => 'sandra.sygav@tptlive.ee'
          ]);
     }
 }

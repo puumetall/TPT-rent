@@ -27,10 +27,13 @@ class Product extends Model
 
     public function image():Attribute {
         return Attribute::set(function($value){
-            /**
-             *  @var UploadedFile $value
-             */
-            return Storage::url($value->store('public'));
+            if(gettype($value) === 'object' && get_class($value) === UploadedFile::class){
+                /**
+                 *  @var UploadedFile $value
+                 */
+                return Storage::url($value->store('public'));
+            }
+            return $value;
         });
     }
 }
