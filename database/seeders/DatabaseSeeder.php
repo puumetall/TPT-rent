@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $user = \App\Models\User::factory()->create([
              'name' => 'Kaspar Suursalu',
-             'email' => 'kaspar@mail.com'
+             'email' => 'kaspar.martin.suursalu@tptlive.ee'
         ]);
 
         Role::create(['name'=> 'admin']);

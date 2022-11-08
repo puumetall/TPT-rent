@@ -36,4 +36,8 @@ class Product extends Model
             return $value;
         });
     }
+
+    public function reservations(){
+        return $this->belongsToMany(Reservation::class);
+    }
 }
