@@ -16,10 +16,11 @@
                             <li class="list-group-item"><b>Status:</b>{{$product->status}}</li>
                         </ul>
                         <div class="card-body">
+                            <a href="{{route('public.show', ['product'=> $product->id])}}" class="btn btn-primary">Read more</a>
                             @if($product->status == 'not available')
-                                <a href="#" class="btn btn-primary disabled">Read more</a>
+                                <a href="#" class="btn btn-primary disabled">Add to Cart</a>
                             @else
-                                <a href="{{route('public.show', ['product'=> $product->id])}}" class="btn btn-primary">Read more</a>
+                                <a href="{{route('cart.add', ['product'=> $product->id])}}" class="btn btn-primary">Add to Cart</a>
                             @endif
                         </div>
                     </div>

@@ -21,7 +21,7 @@
         @include('partials.topnav')
         <div class="row">
             @role('admin')
-                <div class="col-1">
+                <div class="col-2">
                     @include('partials.sidenav')
                 </div>
             @endrole
@@ -34,5 +34,6 @@
 
 
     </div>
+    @stack('scripts')
 </body>
 </html>

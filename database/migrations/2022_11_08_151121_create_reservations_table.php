@@ -18,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->enum('status', ['cart', 'submitted', 'canceled', 'accepted', 'received', 'completed']);
-            $table->timestamp('reserved_start');
-            $table->timestamp('reserved_end');
+            $table->timestamp('reserved_start')->nullable();
+            $table->timestamp('reserved_end')->nullable();
             $table->timestamps();
         });
     }

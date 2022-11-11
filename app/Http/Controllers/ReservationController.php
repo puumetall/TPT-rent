@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Reservation;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
@@ -96,5 +97,14 @@ class ReservationController extends Controller
        }
        $cart->products()->attach($product);
        return redirect()->back();
+    }
+
+    public function make(Request $request){
+        $cart = Auth::user()->reservations()->where('status', 'cart')->first();
+        $cart->reserved_start = $request->input('reserved_start');
+        $cart->reserved_end = $request->input('reserved_end');
+        $cart->status = 'submitted';
+        $cart->save();
+        return redirect()->route('public.index');
     }
 }
