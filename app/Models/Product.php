@@ -40,4 +40,8 @@ class Product extends Model
     public function reservations(){
         return $this->belongsToMany(Reservation::class);
     }
+
+    public function activeReservations(){
+        return $this->belongsToMany(Reservation::class)->whereIn('status', ['submitted', 'accepted', 'received']);
+    }
 }

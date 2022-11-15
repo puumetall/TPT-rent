@@ -31,6 +31,7 @@ Route::middleware(['auth','verified'])->group(function(){
 
         Route::resource('products', ProductController::class);
         Route::resource('users', UserController::class )->only(['index','show','edit','update']);
+        Route::resource('reservations', ReservationController::class);
 
     });
 

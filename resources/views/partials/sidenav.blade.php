@@ -13,6 +13,12 @@
                 Users
             </a>
         </li>
+        <li>
+            <a href="{{route('reservations.index')}}" class="nav-link {{request()->route()->getName() === 'reservations.index' ? 'active' : 'link-dark'}}">
+                <span class="mdi mdi-calendar-clock-outline"></span>
+                Reservations
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown">

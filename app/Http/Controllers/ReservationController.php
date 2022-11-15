@@ -18,7 +18,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $reservations = Reservation::whereNot('status', 'cart')->paginate();
+        return view('reservations.index', compact('reservations'));
     }
 
     /**
@@ -73,7 +74,9 @@ class ReservationController extends Controller
      */
     public function update(UpdateReservationRequest $request, Reservation $reservation)
     {
-        //
+        $reservation->status = $request->validated('status');
+        $reservation->save();
+        return redirect()->back();
     }
 
     /**

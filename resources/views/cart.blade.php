@@ -29,9 +29,20 @@
     <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.umd.min.js"></script>
     <script>
         const DateTime = easepick.DateTime;
-        const dates= [
-            // new DateTime('2022-11-15', 'YYYY-MM-DD')
-        ]
+        const bookedDates = [
+            @foreach($reservations as $reservation)
+                ['{{$reservation[0]}}', '{{$reservation[1]}}'],
+            @endforeach
+        ].map(d => {
+            if (d instanceof Array) {
+                const start = new DateTime(d[0], 'YYYY-MM-DD');
+                const end = new DateTime(d[1], 'YYYY-MM-DD');
+
+                return [start, end];
+            }
+
+            return new DateTime(d, 'YYYY-MM-DD');
+        });
         const picker = new easepick.create({
             element: document.getElementById('datepicker'),
             plugins: ['RangePlugin', 'LockPlugin'],
@@ -42,7 +53,7 @@
             LockPlugin: {
                 inseparable: true,
                 filter(date, picked){
-                    return date.inArray(dates, '[)');
+                     return date.inArray(bookedDates, '[)');
                 }
             },
             css: [
