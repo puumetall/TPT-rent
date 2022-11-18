@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductSeeder::class);
         // \App\Models\User::factory(10)->create();
         $user = \App\Models\User::factory()->create([
-            'name' => 'Martin Suursalu',
-            'email' => 'martin@mail.com'
+            'name' => 'Kaka',
+            'email' => 'kaka@mail.com'
         ]);
         $user = \App\Models\User::factory()->create([
-             'name' => 'Kaspar Suursalu',
-             'email' => 'kaspar.martin.suursalu@tptlive.ee'
+             'name' => 'Sandra',
+             'email' => 'sandra.sygav@tptlive.ee'
         ]);
 
         Role::create(['name'=> 'admin']);

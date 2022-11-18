@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@easepick/bundle": "^1.2.0",
-        "@mdi/font": "^7.0.96"
+        "@mdi/font": "^7.0.96",
+        "html5-qrcode": "^2.3.1"
     }
 }

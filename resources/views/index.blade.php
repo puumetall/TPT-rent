@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
     <div class="container text-center">
+        <form>
+            <div class="input-group mb-3">
+                <input type="search" class="form-control" name="search" placeholder="Search">
+                <input type="submit" class="btn btn-primary">
+                <a href="{{route('public.qrscan')}}" class="btn btn-primary">Scan</a>
+            </div>
+        </form>
         {{$products->links()}}
         <div class="row">
             @foreach($products as $product)
@@ -11,7 +18,7 @@
                             {{$product->name}}
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><b>Brand:</b> {{$product->brand}}</li>
+                            <li class="list-group-item"><b>Brand:</b><a href="{{route('public.brand', ['brand'=> $product->brand])}}" class="btn btn-link">{{$product->brand}}</a> </li>
                             <li class="list-group-item"><b>Produced:</b>{{$product->production_date}}</li>
                             <li class="list-group-item"><b>Status:</b>{{$product->status}}</li>
                         </ul>
